@@ -5,4 +5,14 @@ const createDog = async (name, image, height, weight, lifeSpan) => {
     return newDog;
 }
 
-module.exports = { createDog }
+const getAllDogs = async () => {
+    const allDogs = Dogs.findAll()
+    return allDogs;
+}
+
+const findDog = async (idRaza) => {
+    const dog = await Dogs.findOne(({ where: { id : idRaza } }))
+    return dog;
+}
+
+module.exports = { createDog, getAllDogs, findDog}
